@@ -3,8 +3,8 @@ import { EventData, isAndroid } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
-
 import { MainStackParamList } from "../../NavigationParamList";
+import BottomTabsNavigator from '../BottomTabsNavigator/BottomTabsNavigator';
 import TabIcon from '../TabIcon/TabIcon';
 
 type ScreenOneProps = {
@@ -12,7 +12,32 @@ type ScreenOneProps = {
     navigation: FrameNavigationProp<MainStackParamList, "Home">,
 };
 
+const BottomNav = BottomTabsNavigator()
 
+const Comp = () => (
+    <gridLayout rows="auto,*" class="bg-transparent" >
+        <label
+            text="Search"
+            class="text-3xl font-bold ml-8 mt-6"
+        />
+    </gridLayout>
+)
+const Comp1 = () => (
+    <gridLayout rows="auto,*" class="bg-transparent" >
+        <label
+            text="Likes"
+            class="text-3xl font-bold ml-8 mt-6"
+        />
+    </gridLayout>
+)
+const Comp2 = () => (
+    <gridLayout rows="auto,*" class="bg-transparent" >
+        <label
+            text="Settings"
+            class="text-3xl font-bold ml-8 mt-6"
+        />
+    </gridLayout>
+)
 
 export default ({ navigation }: ScreenOneProps) => {
     const [selectedIndex, setSelectedIndex] = React.useState(0)
@@ -20,52 +45,19 @@ export default ({ navigation }: ScreenOneProps) => {
     const changeTab = (index: number) => setSelectedIndex(index)
 
     return (
-        < >
-            <bottomNavigation
+        <>
+            <BottomNav.Navigator
                 selectedIndex={selectedIndex}
-                onSelectedIndexChanged={(args) => {
-                    setSelectedIndex(args.newIndex);
+                onSelectedIndexChanged={(oldIndex, newIndex) => {
+                    setSelectedIndex(newIndex);
                 }}
             >
-                <tabStrip>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
-                </tabStrip>
-                <tabContentItem nodeRole="items">
-                    <gridLayout rows="auto,*" class="bg-transparent" >
-                        <label
-                            text="Search"
-                            class="text-3xl font-bold ml-8 mt-10"
-                        />
-                    </gridLayout>
-                </tabContentItem>
-                <tabContentItem nodeRole="items">
-                    <gridLayout rows="auto,*" class="bg-transparent" >
-                        <label
-                            text="Likes"
-                            class="text-3xl font-bold ml-8  mt-10"
-                        />
-                    </gridLayout>
-                </tabContentItem>
-                <tabContentItem nodeRole="items">
-                    <gridLayout rows="auto,*" class="bg-transparent" >
-                        <label
-                            text="Settings"
-                            class="text-3xl font-bold ml-8 mt-10"
-                        />
-                    </gridLayout>
-                </tabContentItem>
-            </bottomNavigation>
+                <BottomNav.Screen name="Search" component={Comp} />
+                <BottomNav.Screen name="Likes" component={Comp1} />
+                <BottomNav.Screen name="Settings" component={Comp2} />
+            </BottomNav.Navigator>
 
-            <contentView
-                row="0"
-                class="align-bottom bg-semi-gradient"
-                height="20"
-                opacity={.5}
-            />
-
-            <gridLayout className="pb-5" row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
+            <gridLayout row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
                 <gridLayout col={0} className="debug:bg-red-50/50" onTap={() => changeTab(0)}>
                     <TabIcon
                         className="w-[38]"
@@ -91,7 +83,6 @@ export default ({ navigation }: ScreenOneProps) => {
                     />
                 </gridLayout>
             </gridLayout>
-        </ >
-
+        </>
     );
 }

@@ -51,54 +51,53 @@ function BottomTabsNavigator({
     children,
   });
 
-  // React.useEffect(() => {
-  //   if (selectedIndex !== state.index)
-  //     navigation.navigate(state.routes[selectedIndex].name)
+  React.useEffect(() => {
+    if (selectedIndex !== state.index)
+      navigation.navigate(state.routes[selectedIndex].name)
 
-  //     console.log(state.history)
-  // }, [selectedIndex])
+    console.log(state.history)
+  }, [selectedIndex])
 
   return (
-    <bottomNavigation
-      {...rest}
-      style={{ ...style }}
-      selectedIndex={state.index}
-      /**
-       * Firing the navigation event upon onSelectedIndexChanged handles both the case of
-       * tapping the target TabStripItem and swiping between TabContentItems.
-       * 
-       * There is also onSelectedIndexChange (the Property change event) which fires afterward.
-       * I think either work fine; would have to closely inspect the implementation to say more.
-       */
-      onSelectedIndexChanged={(args) => {
-      //  onSelectedIndexChanged(args.oldIndex, args.newIndex)
-        const route = state.routes[args.newIndex];
+      <bottomNavigation
+        {...rest}
+        selectedIndex={state.index}
+        /**
+         * Firing the navigation event upon onSelectedIndexChanged handles both the case of
+         * tapping the target TabStripItem and swiping between TabContentItems.
+         * 
+         * There is also onSelectedIndexChange (the Property change event) which fires afterward.
+         * I think either work fine; would have to closely inspect the implementation to say more.
+         */
+        onSelectedIndexChanged={(args) => {
+          onSelectedIndexChanged(args.oldIndex, args.newIndex)
+          const route = state.routes[args.newIndex];
 
-        const event = navigation.emit({
-          type: 'tabPress',
-          target: route.key,
-          canPreventDefault: true,
-        });
-
-        // @ts-ignore
-        if (!event.defaultPrevented) {
-          navigation.dispatch({
-            ...TabActions.jumpTo(route.name),
-            target: state.key,
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+            canPreventDefault: true,
           });
-        }
-      }}
-    >
-      <tabStrip>
-        {state.routes.map(() => <tabStripItem class="debug:bg-[#000316]" />)}
-      </tabStrip>
 
-      {state.routes.map(route => (
-        <tabContentItem key={route.key + "-tabContentItem"} nodeRole="items">
-          {descriptors[route.key].render()}
-        </tabContentItem>
-      ))}
-    </bottomNavigation>
+          // @ts-ignore
+          if (!event.defaultPrevented) {
+            navigation.dispatch({
+              ...TabActions.jumpTo(route.name),
+              target: state.key,
+            });
+          }
+        }}
+      >
+        <tabStrip>
+          {state.routes.map((r, i) => <tabStripItem class="debug:bg-[#000316]" key={i} />)}
+        </tabStrip>
+
+        {state.routes.map(route => (
+          <tabContentItem key={route.key + "-tabContentItem"} nodeRole="items">
+            {descriptors[route.key].render()}
+          </tabContentItem>
+        ))}
+      </bottomNavigation>
   );
 }
 
