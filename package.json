@@ -1,0 +1,33 @@
+{
+  "name": "ultimate-tab-setup",
+  "main": "src/app.ts",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript-community/ui-collectionview": "^4.0.63",
+    "@nativescript-community/ui-lottie": "^5.0.0",
+    "@nativescript-community/ui-material-bottom-navigation": "^7.0.30",
+    "@nativescript/core": "~8.3.6",
+    "@nativescript/tailwind": "^2.0.1",
+    "@triniwiz/nativescript-image-cache-it": "^7.0.20",
+    "font-awesome": "^4.7.0",
+    "react": "^16.14.0",
+    "react-nativescript": "^4.0.0",
+    "react-nativescript-navigation": "^4.0.0",
+    "zone.js": "^0.12.0"
+  },
+  "devDependencies": {
+    "@nativescript/android": "^8.3.1",
+    "@nativescript/ios": "^8.3.3",
+    "@nativescript/types": "^8.3.1",
+    "@nativescript/webpack": "~5.0.11",
+    "@types/react": "npm:types-react-without-jsx-intrinsics@^16.14.30",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.8.4"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "gitHead": "1350d382fb4b0ed4c6e9685df909518b2688e004",
+  "readme": "NativeScript Application"
+}

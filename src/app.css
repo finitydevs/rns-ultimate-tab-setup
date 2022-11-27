@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Page {
+  background: transparent;
+}
+
+.fa {
+  font-family: 'FontAwesome', 'fontawesome-webfont';
+  font-weight: 400;
+}
+
+/* TEMPORARY testing visuals */
+.bg-semi-gradient {
+  background: linear-gradient(to top, #595959, rgba(0,0,0,0));
+}
+.bg-tile {
+  background: linear-gradient(135deg, #161828, #2f2444);
+}
