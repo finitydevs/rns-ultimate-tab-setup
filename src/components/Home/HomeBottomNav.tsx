@@ -57,7 +57,7 @@ export default ({ navigation }: ScreenOneProps) => {
                 <BottomNav.Screen name="Settings" component={Comp2} />
             </BottomNav.Navigator>
 
-            <gridLayout row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
+            <gridLayout className="pb-5" row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
                 <gridLayout col={0} className="debug:bg-red-50/50" onTap={() => changeTab(0)}>
                     <TabIcon
                         className="w-[38]"

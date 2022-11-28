@@ -33,7 +33,7 @@ export const Navigator = () => {
                 />
                 <StackNavigator.Screen
                     name="Home"
-                    component={Home}
+                    component={HomeBottomNav}
                 />
             </StackNavigator.Navigator>
         </BaseNavigationContainer>
