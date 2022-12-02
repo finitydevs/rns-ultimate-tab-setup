@@ -46,8 +46,8 @@ const LaunchScreen = () => {
             .animate({
                 scale: { x: 4, y: 4 },
                 opacity: 1,
-                duration: 700,
-                delay: 800,
+                duration: 1000,
+                delay: 2000 ,
                 curve: CoreTypes.AnimationCurve.easeInOut,
             })
             .then(() => {
@@ -78,7 +78,7 @@ const LaunchScreen = () => {
     }
 
     return (
-        <gridLayout className="w-full bg-[#c1e7fd]">
+        <gridLayout className="w-full">
             <lottieView
                 onLoaded={loadedLottie}
                 height="300"
@@ -90,7 +90,7 @@ const LaunchScreen = () => {
             />
 
             <contentView
-                className="bg-[#7dadff] rounded-full"
+                className="bg-[#016096] rounded-full"
                 width="300"
                 height="300"
                 onLoaded={loadedColor}
