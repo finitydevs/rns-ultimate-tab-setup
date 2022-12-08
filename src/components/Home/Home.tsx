@@ -1,8 +1,7 @@
-import { BottomNavigation } from '@nativescript-community/ui-material-bottom-navigation';
-import { EventData, isAndroid } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
+import Feed from '../../Feed';
 
 import { MainStackParamList } from "../../NavigationParamList";
 import TabIcon from '../TabIcon/TabIcon';
@@ -12,15 +11,13 @@ type ScreenOneProps = {
     navigation: FrameNavigationProp<MainStackParamList, "Home">,
 };
 
-
-
 export default ({ navigation }: ScreenOneProps) => {
     const [selectedIndex, setSelectedIndex] = React.useState(0)
 
     const changeTab = (index: number) => setSelectedIndex(index)
 
     return (
-        < >
+        <gridLayout rows="*, auto">
             <bottomNavigation
                 selectedIndex={selectedIndex}
                 onSelectedIndexChanged={(args) => {
@@ -33,12 +30,7 @@ export default ({ navigation }: ScreenOneProps) => {
                     <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
                 </tabStrip>
                 <tabContentItem nodeRole="items">
-                    <gridLayout rows="auto,*" class="bg-transparent" >
-                        <label
-                            text="Search"
-                            class="text-3xl font-bold ml-8 mt-10"
-                        />
-                    </gridLayout>
+                    <Feed />
                 </tabContentItem>
                 <tabContentItem nodeRole="items">
                     <gridLayout rows="auto,*" class="bg-transparent" >
@@ -59,13 +51,13 @@ export default ({ navigation }: ScreenOneProps) => {
             </bottomNavigation>
 
             <contentView
-                row="0"
+                row={0}
                 class="align-bottom bg-semi-gradient"
                 height="20"
                 opacity={.5}
             />
 
-            <gridLayout className="pb-5" row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
+            <gridLayout className="pb-5" row={1} columns="*, *, *" rows='49' backgroundColor="#efefef">
                 <gridLayout col={0} className="debug:bg-red-50/50" onTap={() => changeTab(0)}>
                     <TabIcon
                         className="w-[38]"
@@ -91,7 +83,7 @@ export default ({ navigation }: ScreenOneProps) => {
                     />
                 </gridLayout>
             </gridLayout>
-        </ >
+        </gridLayout>
 
     );
 }

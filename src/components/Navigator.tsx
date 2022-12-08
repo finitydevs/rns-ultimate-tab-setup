@@ -32,7 +32,7 @@ export const Navigator = () => {
                 />
                 <StackNavigator.Screen
                     name="Home"
-                    component={HomeBottomNav}
+                    component={Home}
                 />
             </StackNavigator.Navigator>
         </BaseNavigationContainer>
