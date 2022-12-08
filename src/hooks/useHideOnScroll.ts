@@ -32,15 +32,21 @@ export function useHideOnScroll(props: UseHideOnScrollProps) {
             if (!bar || !scrollView)
                 return console.error('useHideOnScroll: You must pass in a valid scrollview and element ID')
 
-            scrollView.marginTop = -1 * maxStretch;
+            bar.eachChildView((v: View) => {
+                v.opacity = 0;
+                return true;
+            });
 
+            bar.translateY = bar.translateY - maxStretch;
+            bar.height = 0;
+
+            scrollView.marginTop = 1 * -maxStretch + -10;
             // @ts-ignore
             scrollView.on('pan', (args: PanGestureEventData) => {
 
                 if (args.state === GestureStateTypes.changed) {
                     if (args.deltaY > 0) {
                         if (animation.animation?.isPlaying && animation.animationDelta > 0) return
-                        scrollView.marginTop = -1 * maxStretch;
                         animation.animationDelta = args.deltaY
 
                         const def1: AnimationDefinition = {

@@ -37,13 +37,14 @@ export default ({ navigation }: ScreenOneProps) => {
     const changeTab = (index: number) => setSelectedIndex(index)
 
     return (
-        <gridLayout rows="*, auto">
+        <gridLayout rows="*, auto" className="bg-transparent">
             <BottomNav.Navigator
+                defaultScreenOptions={{showHeader: false}}
                 selectedIndex={selectedIndex}
                 onSelectedIndexChanged={(oldIndex, newIndex) => {
                     setSelectedIndex(newIndex);
                 }}
-                
+                rowSpan="2"
             >
                 <BottomNav.Screen name="Search" component={Feed} />
                 <BottomNav.Screen name="Likes" component={Comp1} />
@@ -52,7 +53,7 @@ export default ({ navigation }: ScreenOneProps) => {
 
             <contentView row={0} className="align-bottom bg-semi-gradient" height="20" opacity={0.5} />
 
-            <gridLayout className="pb-5" row="1" columns="*, *, *" rows='49' backgroundColor="#efefef">
+            <gridLayout className="pb-5" row="1" columns="*, *, *" rows='56' backgroundColor="#efefef">
                 <gridLayout col={0} className="debug:bg-red-50/50" onTap={() => changeTab(0)}>
                     <TabIcon
                         className="w-[38]"

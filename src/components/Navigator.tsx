@@ -16,7 +16,7 @@ export const Navigator = () => {
     return (
         <BaseNavigationContainer>
             <StackNavigator.Navigator
-                initialRouteName="LaunchScreen"
+                initialRouteName="Home"
                 screenOptions={{
                     gestureEnabled: true,
                     headerStyle: {

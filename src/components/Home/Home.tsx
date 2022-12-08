@@ -1,3 +1,4 @@
+import { isIOS } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
@@ -23,17 +24,15 @@ export default ({ navigation }: ScreenOneProps) => {
                 onSelectedIndexChanged={(args) => {
                     setSelectedIndex(args.newIndex);
                 }}
+
             >
                 <tabStrip>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
-                    <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
+                    <tabStripItem class="debug:bg-[#000316]" />
+                    <tabStripItem class="debug:bg-[#000316]" />
+                    <tabStripItem class="debug:bg-[#000316]" />
                 </tabStrip>
                 <tabContentItem nodeRole="items">
-                    <gridLayout>
-                        <Feed />
-
-                    </gridLayout>
+                    <Feed />
                 </tabContentItem>
                 <tabContentItem nodeRole="items">
                     <gridLayout rows="auto,*" class="bg-transparent" >
