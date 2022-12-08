@@ -1,7 +1,6 @@
 import { BaseNavigationContainer } from '@react-navigation/core';
 import * as React from "react";
 import { stackNavigatorFactory } from "react-nativescript-navigation";
-import { setWindowBackgroundColor } from '../utils/device';
 import Home from './Home/Home';
 import HomeBottomNav from './Home/HomeBottomNav';
 import LaunchScreen from './LaunchSreen';

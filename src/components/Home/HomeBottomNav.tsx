@@ -21,8 +21,8 @@ const Comp = () => {
     })
 
     return (
-        <gridLayout rows="auto,*" className="bg-transparent" onLoaded={onWrapperLoaded}>
-            <gridLayout className="wrapper" rows="auto, 750">
+        <gridLayout rows="*" className="bg-transparent" onLoaded={onWrapperLoaded}>
+            <gridLayout className="wrapper" rows="auto, *">
                 <gridLayout id="bar" className="pb-5 pl-4 pr-4 bg-slate-50" row={0}>
                     <gridLayout columns="60, *, 60">
                         <image src="~/assets/twitter-avatar.png" className="h-10" col={0} />
@@ -58,6 +58,7 @@ const Comp = () => {
         </gridLayout>
     )
 }
+
 const Comp1 = () => (
     <gridLayout rows="auto,*" class="bg-transparent" >
         <label
