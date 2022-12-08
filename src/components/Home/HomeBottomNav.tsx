@@ -1,3 +1,4 @@
+import { ScrollView } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
@@ -21,9 +22,8 @@ const Comp = () => {
 
     return (
         <gridLayout rows="auto,*" className="bg-transparent" onLoaded={onWrapperLoaded}>
-
-            <gridLayout className="wrapper" rows="auto, 740">
-                <gridLayout id="bar" className="pb-5 pl-4 pr-4 " row={0}>
+            <gridLayout className="wrapper" rows="auto, 750">
+                <gridLayout id="bar" className="pb-5 pl-4 pr-4 bg-slate-50" row={0}>
                     <gridLayout columns="60, *, 60">
                         <image src="~/assets/twitter-avatar.png" className="h-10" col={0} />
                         <label col={1} text="Home" className="font-bold text-center"></label>
