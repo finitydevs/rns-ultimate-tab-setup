@@ -30,7 +30,10 @@ export default ({ navigation }: ScreenOneProps) => {
                     <tabStripItem class="debug:bg-[#000316]"></tabStripItem>
                 </tabStrip>
                 <tabContentItem nodeRole="items">
-                    <Feed />
+                    <gridLayout>
+                        <Feed />
+
+                    </gridLayout>
                 </tabContentItem>
                 <tabContentItem nodeRole="items">
                     <gridLayout rows="auto,*" class="bg-transparent" >

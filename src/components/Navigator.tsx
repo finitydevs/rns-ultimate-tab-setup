@@ -3,7 +3,7 @@ import * as React from "react";
 import { stackNavigatorFactory } from "react-nativescript-navigation";
 import { getStatusBarHeight } from '../utils';
 import Home from './Home/Home';
-import HomeBottomNav from './Home/HomeBottomNav';
+import HomeBottomNav from '../HomeBottomNavWIP';
 import LaunchScreen from './LaunchSreen';
 
 const StackNavigator = stackNavigatorFactory();

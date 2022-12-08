@@ -1,10 +1,10 @@
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
-import Feed from '../../Feed';
-import { MainStackParamList } from "../../NavigationParamList";
-import BottomTabsNavigator from '../BottomTabsNavigator/BottomTabsNavigator';
-import TabIcon from '../TabIcon/TabIcon';
+import Feed from './Feed';
+import { MainStackParamList } from "./NavigationParamList";
+import BottomTabsNavigator from './components/BottomTabsNavigator/BottomTabsNavigator';
+import TabIcon from './components/TabIcon/TabIcon';
 
 type ScreenOneProps = {
     route: RouteProp<MainStackParamList, "Home">,
