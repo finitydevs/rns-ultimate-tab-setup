@@ -1,8 +1,7 @@
-import { BottomNavigation } from '@nativescript-community/ui-material-bottom-navigation';
-import { EventData, isAndroid } from '@nativescript/core';
 import { RouteProp } from '@react-navigation/core';
 import * as React from "react";
 import { FrameNavigationProp } from "react-nativescript-navigation";
+import { useHideOnScroll } from '../../hooks/useHideOnScroll';
 import { MainStackParamList } from "../../NavigationParamList";
 import BottomTabsNavigator from '../BottomTabsNavigator/BottomTabsNavigator';
 import TabIcon from '../TabIcon/TabIcon';
@@ -14,14 +13,51 @@ type ScreenOneProps = {
 
 const BottomNav = BottomTabsNavigator()
 
-const Comp = () => (
-    <gridLayout rows="auto,*" class="bg-transparent" >
-        <label
-            text="Search"
-            class="text-3xl font-bold ml-8 mt-6"
-        />
-    </gridLayout>
-)
+const Comp = () => {
+    const { onWrapperLoaded } = useHideOnScroll({
+        scrollViewId: 'scrollView',
+        elementId: 'bar'
+    })
+
+    return (
+        <gridLayout rows="auto,*" className="bg-transparent" onLoaded={onWrapperLoaded}>
+
+            <gridLayout className="wrapper" rows="auto, 740">
+                <gridLayout id="bar" className="pb-5 pl-4 pr-4 " row={0}>
+                    <gridLayout columns="60, *, 60">
+                        <image src="~/assets/twitter-avatar.png" className="h-10" col={0} />
+                        <label col={1} text="Home" className="font-bold text-center"></label>
+                        <image src="~/assets/twitter-star.png" className="h-9" col={2} />
+                    </gridLayout>
+                </gridLayout>
+
+                <scrollView id="scrollView" row={1}>
+                    <stackLayout>
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                        <image src="~/assets/tweet.png" />
+                    </stackLayout>
+                </scrollView>
+            </gridLayout>
+        </gridLayout>
+    )
+}
 const Comp1 = () => (
     <gridLayout rows="auto,*" class="bg-transparent" >
         <label

@@ -24,7 +24,7 @@ const LaunchScreen = () => {
                         opacity: 0,
                         scale: { x: 0.7, y: 0.7 },
                         // translate: {x: 0, y: 10},
-                        duration: 400,
+                        duration: 300,
                         curve: CoreTypes.AnimationCurve.linear,
                     }])
 
@@ -47,7 +47,7 @@ const LaunchScreen = () => {
                 scale: { x: 4, y: 4 },
                 opacity: 1,
                 duration: 700,
-                delay: 800,
+                delay: 3300,
                 curve: CoreTypes.AnimationCurve.easeInOut,
             })
             .then(() => {
@@ -69,7 +69,7 @@ const LaunchScreen = () => {
 
         lottieView?.animate({
             opacity: 1,
-            duration: 300,
+            duration: 200,
         })
             .then(() => { })
             .catch(() => { });
@@ -84,7 +84,7 @@ const LaunchScreen = () => {
                 height="300"
                 width="300"
                 autoPlay="false"
-                src="~/assets/fish-jump.json"
+                src="~/assets/launch-lottie.json"
                 ref={lottieRef}
                 className="h-center v-center"
             />

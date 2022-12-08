@@ -12,23 +12,22 @@ const StackNavigator = stackNavigatorFactory();
  * The main stack navigator for the whole app.
  */
 export const Navigator = () => {
-    
+
     return (
         <BaseNavigationContainer>
             <StackNavigator.Navigator
                 initialRouteName="LaunchScreen"
-                
+
                 screenOptions={{
                     gestureEnabled: true,
                     headerStyle: {
                         backgroundColor: "white",
                     },
-                    headerShown: true,
+                    headerShown: false,
                 }}
             >
                 <StackNavigator.Screen
                     name="LaunchScreen"
-                    options={{headerShown: false}}
                     component={LaunchScreen}
                 />
                 <StackNavigator.Screen

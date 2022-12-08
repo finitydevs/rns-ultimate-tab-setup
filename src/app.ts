@@ -17,7 +17,6 @@ ReactNativeScript.registerElement('lottieView', () => require('@nativescript-com
 // - false: only error logs.
 Object.defineProperty(global, '__DEV__', { value: false });
 import { CoreTypes, TouchManager, View } from '@nativescript/core';
-import { setWindowBackgroundColor } from './utils/device';
 
 // default Touch animations for entire app
 const originalTransform = Symbol('originalTransform');
